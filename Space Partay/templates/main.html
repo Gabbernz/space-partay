@@ -7,7 +7,10 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
 
-    <body>
+    <body style="display:flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div>
+            <header style="display: flex; justify-content: center; text-align: center; font-size:xxx-large; margin-bottom:2%">SPACE PARTAY</header>
+        </div>
         <header>
             <div class ="header-logo">
                 <a href="/">
@@ -15,29 +18,31 @@
                 </a>
             </div>
             <div class = "header-links">
-                <a href="medlem.html">
+                <a href="{{ url_for('member')}}" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
                     Bli Medlem
                 </a>
-                <a href="{{ url_for('chat')}}">
+                <a href="{{ url_for('chat')}}" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
                     Politikken
                 </a>
-                <a href="Om oss">
+                <a href="Om oss" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
                     Om oss
                 </a>
             </div>
         </header>
         <main>
             <div class ="tagline">
-                <h1>Space Partay</h1>
-                <p>Vi tenker utenfor <s>boksen</s> atmosfæren.</p>
+                <!-- <h1>Space Partay</h1> -->
+                <p style="font-size:x-large; background-color: #19243d; border-radius: 5%; padding: 2%;">Vi tenker utenfor <s>boksen</s> atmosfæren.</p>
                 <img src = "../static/logo.PNG" width="500" />
             </div>
             <div class = "verdier">
+                <!-- TODO: add values -->
                 <p> Verdi 1</p>
                 <p> Verdi 2</p>
                 <p> Verdi 3</p>
             </div>
             <div class = "leder">
+                <!-- TODO: add leader info -->
                 <div class = "subheader"></div>
                 <div>
                     <img src="somethin">

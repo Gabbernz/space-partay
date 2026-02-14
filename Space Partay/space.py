@@ -40,6 +40,10 @@ def home():
 def chat():
     return render_template("chat.html")
 
+@app.route("/member")
+def member():
+    return render_template("member.html")
+
 @app.get("/health")
 def health():
     return jsonify({"ok": True})

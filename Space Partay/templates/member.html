@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="no">
+<html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <head>
+        <title>Space Partay</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <head style="display:flex; justify-content: center; align-items: center; flex-direction: column;">
+        <p style="display:flex; justify-content: center; align-items: center; font-size: xx-large; color: white;">Space Partay - Bli Medlem</p>
+        <div style="display:flex; justify-content: center; align-items: center; flex-direction: row;">
+            <textarea id="firstname" placeholder="Fornavn" style="background-color: #19243d; margin:2%; width: 30%; height: 30%; color: white;"></textarea>
+            <textarea id="lastname" placeholder="Etternavn" style="background-color: #19243d; margin:2%; width: 30%; height: 30%; color: white;"></textarea>
+        </div>
+        <div style="display:flex; justify-content: center; align-items: center; flex-direction: row; margin: 2%">
+            <textarea id="email" placeholder="E-post" style="background-color: #19243d; width: 40%; height: 30%; color: white;"></textarea>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: row; margin: 3%">
+            <button id="submit" onclick="alert('Du er nå medlem! Gratulerer🥳')">Bli Medlem</button>
+        </div>
+    </head>
+
+</html>
