@@ -24,7 +24,7 @@
                 <a href="{{ url_for('chat')}}" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
                     Politikken
                 </a>
-                <a href="Om oss" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
+                <a href="{{ url_for('omoss')}}" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
                     Om oss
                 </a>
             </div>
@@ -35,22 +35,27 @@
                 <p style="font-size:x-large; background-color: #19243d; border-radius: 5%; padding: 2%;">Vi tenker utenfor <s>boksen</s> atmosfæren.</p>
                 <img src = "../static/logo.PNG" width="500" />
             </div>
+            <div class = "verdier-over">
+                <h1>Våre Verdier</h1>
             <div class = "verdier">
                 <!-- TODO: add values -->
                 <p> Verdi 1</p>
                 <p> Verdi 2</p>
                 <p> Verdi 3</p>
             </div>
+            </div>
             <div class = "leder">
                 <!-- TODO: add leader info -->
-                <div class = "subheader"></div>
-                <div>
-                    <img src="somethin">
+                <div class = "subheader">
+                    <h2>Vår kjære partileder: Darleif Vederås</h2>
+                </div>
+                <div class = "info">
+                    <img src="{{ url_for('static', filename='propell.PNG') }}" style="width:25vw; height:40vh;">
                     <div>
-                        <p>NAVN</p>
-                        <ul>
-
-                        </ul>
+                        <h3>Darleif Vederås, Mannen med ideene!</h3>
+                        <p>
+                            Jeg er Darleif Vederås, leder for Space Partay. Jeg brenner for å frigjøre jorden fra miljøgifter og tung industri ved å flytte dette ut i rommet. Sammen med partiet mitt vil jeg bygge Norges romindustri, skape nye arbeidsplasser og sikre en bærekraftig framtid for planeten vår. Vi tror på teknologi, rakettfag og rombasert utvikling – jordens problemer løser vi ikke på jorden. Enkel og klar politikk med blikket festet mot stjernene
+                        </p>
                     </div>
                 </div>
             </div>

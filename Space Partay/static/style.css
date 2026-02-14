@@ -44,3 +44,44 @@ a{
     color:white;
 }
 
+.omoss-main{
+    display:grid;
+    grid-template-columns: 45vw 45vw;
+    grid-template-rows: auto;
+    gap: 5vw;
+}
+
+.verdier{
+    display: grid;
+    grid-template-columns: 30vw 30vw 30vw;
+    gap:1.5vw;
+    justify-items: center;
+}
+
+.verdier p{
+    text-align: center;
+}
+
+.verdier-over{
+    display:grid;
+    grid-template-columns: auto;
+}
+
+.leder{
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: 10vh auto;
+
+}
+
+.info{
+    display:grid;
+    grid-template-columns: 30vw 60vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
+
+}
+.subheader{
+    display: flex;
+    justify-content: center;
+}

@@ -2,10 +2,27 @@
 <html lang="no">
 <html>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <head>
-        <title>Space Partay</title>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    </head>
+        <div>
+            <header style="display: flex; justify-content: center; text-align: center; font-size:xxx-large; margin-bottom:2%">SPACE PARTAY</header>
+        </div>
+        <header>
+            <div class ="header-logo">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='logo.PNG') }}" class="logo">
+                </a>
+            </div>
+            <div class = "header-links">
+                <a href="{{ url_for('member')}}" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
+                    Bli Medlem
+                </a>
+                <a href="{{ url_for('chat')}}" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
+                    Politikken
+                </a>
+                <a href="{{ url_for('omoss')}}" style="width: 15%; height: 25%; border-radius:5%; border-color: white; border-width: 1px; border-style: solid; padding: 1%;">
+                    Om oss
+                </a>
+            </div>
+        </header>
     <head style="display:flex; justify-content: center; align-items: center; flex-direction: column;">
         <p style="display:flex; justify-content: center; align-items: center; font-size: xx-large; color: white;">Space Partay - Bli Medlem</p>
         <div style="display:flex; justify-content: center; align-items: center; flex-direction: row;">
