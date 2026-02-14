@@ -53,14 +53,22 @@ a{
 
 .verdier{
     display: grid;
-    grid-template-columns: 30vw 30vw 30vw;
-    gap:1.5vw;
-    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);   /* 3 like kolonner */
+    gap: 2rem;
+
+    width: min(1100px, 90vw);               /* Gi den en maks-bredde */
+    margin: 0 auto;                         /* Sentrer hele grid-boksen */
+
+    justify-items: center;                  /* Sentrer elementene i cellene */
+    text-align: center;                     /* Sentrer teksten */
 }
 
+
 .verdier p{
-    text-align: center;
+    margin: 0;          /* Fjern default margin */
+    max-width: 300px;   /* Hindrer at teksten blir ekstremt bred */
 }
+
 
 .verdier-over{
     display:grid;
