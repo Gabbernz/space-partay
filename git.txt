@@ -1,0 +1,9 @@
+Når du har endringer du liker:
+
+git add .
+git commit -m "melding som beskriver hva du har gjort (trenger ikke være spesielt lang)"
+git push
+
+Når noen andre har gjort endringer:
+
+git pull
