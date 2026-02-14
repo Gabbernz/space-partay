@@ -1,0 +1,46 @@
+body {
+    font-family: "Inter", sans-serif;
+    
+    margin-top: 80px;
+    background: #0f172a;
+    color: white;
+}
+
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    
+}
+main{
+    text-align: center;
+}
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #38bdf8;
+    cursor: pointer;
+}
+header{
+    width:100vw;
+    display:grid;
+    grid-template-columns: 10vw 90vw;
+    grid-template-rows: 10vw;
+    margin:0;
+    font-size: 2vw;
+    text-align: center;
+}
+
+.header-links{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+

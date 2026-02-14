@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partichat</title>
+  <style>
+    :root { --border:#ddd; --bg:#fafafa; --text:#111; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; color: var(--text); }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 16px; }
+    .card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: white; }
+    .header { padding: 12px 14px; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .header h1 { font-size: 16px; margin: 0; }
+    .header p { margin: 6px 0 0; font-size: 13px; color:#444; }
+
+    .chat { height: 60vh; overflow: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .msg { max-width: 78%; padding: 10px 12px; border-radius: 12px; line-height: 1.35; white-space: pre-wrap; }
+    .user { align-self: flex-end; background: #eef2ff; border: 1px solid #dbe1ff; }
+    .bot  { align-self: flex-start; background: #f7f7f7; border: 1px solid #e9e9e9; }
+    .meta { font-size: 12px; color:#555; margin-bottom: 4px; }
+
+    .inputRow { display: flex; gap: 10px; padding: 12px; border-top: 1px solid var(--border); background: white; }
+    textarea { flex: 1; resize: none; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); font: inherit; }
+    button { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: #111; color: white; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    .hint { padding: 10px 14px; font-size: 12px; color:#444; border-top: 1px solid var(--border); background: var(--bg); }
+    .error { color: #b00020; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="header">
+        <h1>Spør partiet</h1>
+        <p>Chatten svarer basert på partiprogrammet.</p>
+      </div>
+
+      <div id="chat" class="chat" aria-live="polite"></div>
+
+      <div class="inputRow">
+        <textarea id="input" rows="2" placeholder="Skriv et spørsmål… (Enter for å sende, Shift+Enter for linjeskift)"></textarea>
+        <button id="send">Send</button>
+      </div>
+
+      <div class="hint">
+        Backend-endpoint forventes på <code>/api/chat</code> og skal returnere JSON: <code>{"answer":"..."}</code>.
+        <span id="status" style="margin-left:10px;"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const chatEl = document.getElementById("chat");
+    const inputEl = document.getElementById("input");
+    const sendBtn = document.getElementById("send");
+    const statusEl = document.getElementById("status");
+
+    function addMessage(role, text) {
+      const wrap = document.createElement("div");
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      meta.textContent = role === "user" ? "Du" : "Partiet";
+      wrap.appendChild(meta);
+
+      const msg = document.createElement("div");
+      msg.className = "msg " + (role === "user" ? "user" : "bot");
+      msg.textContent = text;
+      wrap.appendChild(msg);
+
+      chatEl.appendChild(wrap);
+      chatEl.scrollTop = chatEl.scrollHeight;
+      return msg;
+    }
+
+    function setBusy(isBusy) {
+      sendBtn.disabled = isBusy;
+      inputEl.disabled = isBusy;
+      statusEl.textContent = isBusy ? "Svarer…" : "";
+      statusEl.className = isBusy ? "" : "";
+    }
+
+    async function sendMessage() {
+      const message = inputEl.value.trim();
+      if (!message) return;
+
+      addMessage("user", message);
+      inputEl.value = "";
+      setBusy(true);
+
+      // Placeholder for bot message (fylles når vi får svar)
+      const botMsgEl = addMessage("bot", "");
+
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+
+        if (!res.ok) {
+          const errText = await res.text().catch(() => "");
+          throw new Error(`HTTP ${res.status}. ${errText}`);
+        }
+
+        const data = await res.json();
+        botMsgEl.textContent = data.answer ?? "(tomt svar)";
+      } catch (err) {
+        botMsgEl.textContent = "Beklager — fikk ikke kontakt med chat-backenden.";
+        statusEl.textContent = "Feil";
+        statusEl.className = "error";
+        console.error(err);
+      } finally {
+        setBusy(false);
+        inputEl.focus();
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+
+    inputEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Valgfritt: startmelding
+    addMessage("bot", "Hei! Spør meg om partiets standpunkter, så svarer jeg basert på programmet.");
+  </script>
+</body>
+</html>

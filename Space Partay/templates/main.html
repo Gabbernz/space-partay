@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang ="no">
+<html>
+    <head>
+        <title>Space Partay</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    </head>
+
+    <body>
+        <header><div class ="header-logo"><a href="/">
+            <img src="{{ url_for('static', filename='logo.PNG') }}" class="logo">
+        </a></div>
+        <div class = "header-links">
+            <a href="medlem.html">
+                Bli Medlem
+            </a>
+            <a href="{{ url_for('chat')}}">
+                Politikken
+            </a>
+            <a href="Om oss">
+                Om oss
+            </a>
+        </div>
+    </header>
+        <main>
+            <div>
+
+        <h1>Space Partay</h1>
+        <p>Vi tenker utenfor <s>boksen</s> atmosfæren.</p>
+
+        <button onclick="alert('Du er interessert 👀')">
+            Join waitlist
+        </button>
+            </div>
+    </main>
+    </body>
+    
+</html>
