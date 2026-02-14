@@ -3,55 +3,52 @@
 <html>
     <head>
         <title>Space Partay</title>
-
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
     </head>
 
     <body>
-        <header><div class ="header-logo"><a href="/">
-            <img src="{{ url_for('static', filename='logo.PNG') }}" class="logo">
-        </a></div>
-        <div class = "header-links">
-            <a href="medlem.html">
-                Bli Medlem
-            </a>
-            <a href="{{ url_for('chat')}}">
-                Politikken
-            </a>
-            <a href="Om oss">
-                Om oss
-            </a>
-        </div>
-    </header>
+        <header>
+            <div class ="header-logo">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='logo.PNG') }}" class="logo">
+                </a>
+            </div>
+            <div class = "header-links">
+                <a href="medlem.html">
+                    Bli Medlem
+                </a>
+                <a href="{{ url_for('chat')}}">
+                    Politikken
+                </a>
+                <a href="Om oss">
+                    Om oss
+                </a>
+            </div>
+        </header>
         <main>
-        <div class ="tagline">
-
-        <h1>Space Partay</h1>
-        <p>Vi tenker utenfor <s>boksen</s> atmosfæren.</p>
-        <img src = "coolpic">
+            <div class ="tagline">
+                <h1>Space Partay</h1>
+                <p>Vi tenker utenfor <s>boksen</s> atmosfæren.</p>
+                <img src = "../static/logo.PNG" width="500" />
             </div>
-        <div class = "verdier">
-            <p> Verdi 1</p>
-            <p> Verdi 2</p>
-            <p> Verdi 3</p>
-        </div>
-        <div class = "leder">
-            <div class = "subheader">
+            <div class = "verdier">
+                <p> Verdi 1</p>
+                <p> Verdi 2</p>
+                <p> Verdi 3</p>
             </div>
-            <div>
-                <img src="somethin">
+            <div class = "leder">
+                <div class = "subheader"></div>
                 <div>
-                    <p>NAVN</p>
-                    <ul>
+                    <img src="somethin">
+                    <div>
+                        <p>NAVN</p>
+                        <ul>
 
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-        </div>
-    </main>
+        </main>
     </body>
-    
 </html>
